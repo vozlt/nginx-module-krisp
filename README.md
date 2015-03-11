@@ -124,4 +124,4 @@ The following variables are available when using this header field:
 Description: If recursive search is disabled, the original client address that matches one of the trusted addresses is replaced by the last address sent in the request header field defined by the real_ip_header directive. If recursive search is enabled, the original client address that matches one of the trusted addresses is replaced by the last non-trusted address sent in the request header field.(=real_ip_recursive)
 
 ## Author
-YoungJoo.Kim [<vozlt@vozlt.com>]
+YoungJoo.Kim(김영주) [<vozlt@vozlt.com>]
