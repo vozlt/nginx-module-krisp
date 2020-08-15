@@ -243,11 +243,19 @@ ngx_http_krisp_realip_handler(ngx_http_request_t *r)
 
         case NGX_HTTP_KRISP_PROXY:
 
+#if nginx_version < 1018000
             value = &r->connection->proxy_protocol_addr;
 
             if (value->len == 0) {
                 return NGX_DECLINED;
             }
+#else
+			if (r->connection->proxy_protocol == NULL) {
+				return NGX_DECLINED;
+			}
+
+			value = &r->connection->proxy_protocol->src_addr;
+#endif
 
             xfwd = NULL;
 
